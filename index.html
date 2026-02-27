@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Goju 🥰</title>
+    <style>
+        body {
+            background-color: #e4b9cc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Password Section Styling */
+        #passwordPage {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        input[type="password"] {
+            padding: 12px;
+            border: 2px solid #d885eb;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            outline: none;
+            text-align: center;
+        }
+
+        .card {
+            background: rgb(255, 255, 255);
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(231, 33, 33, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            display: none; /* Hidden initially */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #f69dd9;
+        }
+
+        .gallery img:first-child {
+            grid-column: span 2;
+            height: 200px;
+        }
+
+        h1 { color: #d885eb; }
+        p { color: #837474; font-style: italic; }
+        .decor { font-size: 24px; }
+
+        #startBtn, #loginBtn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #d885eb;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        #startBtn { display: none; } /* Hidden until password is correct */
+    </style>
+</head>
+<body>
+
+    <div id="passwordPage">
+        <h2 style="color: #d65252;">Enter Secret Code 😘</h2>
+        <input type="password" id="passInput" placeholder="Enter Password..."><br>
+        <button id="loginBtn" onclick="checkPassword()">Unlock Magic</button>
+        </div>
+
+    <button id="startBtn" onclick="startMagic()">Click to Open Card 🎁</button>
+
+    <div class="card" id="birthdayCard">
+        <div class="decor">✨ 🥳 ✨</div>
+        <h1>Happy Birthday Goju 🥰</h1>
+        
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Main Photo">
+            <img src="photo2.jpg" alt="Memory 1">
+            <img src="photo3.jpg" alt="Memory 2">
+        </div>
+
+        <p>“A wish for you on your birthday, whatever you ask may you receive, whatever you seek may you find, whatever you wish may it be fulfilled on your birthday and always. Happy birthday!”</p>
+        
+        <div class="decor">😘🎂🫶🏻</div>
+    </div>
+
+    <audio id="mySong" loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function checkPassword() {
+            var password = document.getElementById("passInput").value;
+            // CHANGE "Goju123" to whatever password you want!
+            if (password === "Rita") {
+                document.getElementById("passwordPage").style.display = "none";
+                document.getElementById("startBtn").style.display = "block";
+            } else {
+                alert("Wrong password! Try again ❤️");
+            }
+        }
+
+        function startMagic() {
+            var song = document.getElementById("mySong");
+            song.play();
+            document.getElementById("startBtn").style.display = "none";
+            document.getElementById("birthdayCard").style.display = "block";
+        }
+    </script>
+</body>
+</html>
